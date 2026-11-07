@@ -3,6 +3,7 @@
 **Reverse-Engineered Hardware Specification & Developer Implementation Guide**
 
 > **Target Hardware:** Peavey AT-200 / Antares Auto-Tune for Guitar (ATG-1 / ATG DSP Core)  
+> Product names are used for identification purposes only. This is an independent reverse-engineering effort and is not affiliated with, endorsed by, or sponsored by Peavey or Antares.
 > **Document Version:** 1.0.0  
 > **Scope:** Complete Preset Payload, Parameter Encoding, Q1.23 DSP Math, and Base-128 Checksum Engine.  
 > *(Global Parameters are covered in a separate document.)*
