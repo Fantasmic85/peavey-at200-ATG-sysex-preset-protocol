@@ -1,0 +1,1901 @@
+{
+  "version": 3,
+  "timestamp": "2026-11-07_013839",
+  "type": "library_backup",
+  "patches": [
+    {
+      "name": "Test1",
+      "model": 10,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Test2",
+      "model": 1,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 3,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Test3",
+      "model": 2,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 5,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    },
+    {
+      "name": "EMPTY",
+      "model": 0,
+      "pickup": 0,
+      "capo": 0,
+      "pitch_shift": 0,
+      "tuning": 0,
+      "double": 0,
+      "gate": 0,
+      "solid_tune": true,
+      "custom_tuning": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "custom_doubling": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "notes": ""
+    }
+  ],
+  "groups": [
+    {
+      "name": "GROUP 1",
+      "slots": [
+        "Test1",
+        "Test1",
+        "Test1",
+        "Test1"
+      ],
+      "default_patch": "Test1"
+    },
+    {
+      "name": "GROUP 2",
+      "slots": [
+        "Test1",
+        "Test1",
+        "Test1",
+        "Test1"
+      ],
+      "default_patch": "Test1"
+    },
+    {
+      "name": "GROUP 3",
+      "slots": [
+        "Test1",
+        "Test1",
+        "Test1",
+        "Test1"
+      ],
+      "default_patch": "Test1"
+    },
+    {
+      "name": "GROUP 4",
+      "slots": [
+        "Test1",
+        "Test1",
+        "Test1",
+        "Test1"
+      ],
+      "default_patch": "Test1"
+    },
+    {
+      "name": "GROUP 5",
+      "slots": [
+        "Test1",
+        "Test1",
+        "Test1",
+        "Test1"
+      ],
+      "default_patch": "Test1"
+    },
+    {
+      "name": "GROUP 6",
+      "slots": [
+        "Test1",
+        "Test1",
+        "Test1",
+        "Test1"
+      ],
+      "default_patch": "Test1"
+    },
+    {
+      "name": "GROUP 7",
+      "slots": [
+        "Test1",
+        "Test1",
+        "Test1",
+        "Test1"
+      ],
+      "default_patch": "Test1"
+    },
+    {
+      "name": "GROUP 8",
+      "slots": [
+        "Test1",
+        "Test1",
+        "Test1",
+        "Test1"
+      ],
+      "default_patch": "Test1"
+    },
+    {
+      "name": "GROUP 9",
+      "slots": [
+        "Test1",
+        "Test1",
+        "Test1",
+        "Test1"
+      ],
+      "default_patch": "Test1"
+    },
+    {
+      "name": "GROUP 10",
+      "slots": [
+        "Test1",
+        "Test1",
+        "Test1",
+        "Test1"
+      ],
+      "default_patch": "Test1"
+    }
+  ]
+}
