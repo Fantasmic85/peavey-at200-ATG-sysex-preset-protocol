@@ -629,5 +629,323 @@ def build_sysex_preset_packet(slot_idx: int, patch_dict: Dict[str, Any]) -> byte
 
 ---
 
+
+
+
+# Peavey AT-200 / Antares Auto-Tune for Guitar (ATG) Preset Retrieve Protocol
+
+Reverse-engineered specification and Python reference implementation for retrieving (reading) and unpacking the 64 preset slots directly from the **Peavey AT-200** / **Antares ATG-1** hardware over standard MIDI System Exclusive (SysEx).
+
+---
+
+## Overview
+
+The Peavey AT-200 uses proprietary Antares SysEx messages (`Manufacturer ID: 00 01 26`). While write/flashing operations have historically been documented, preset extraction (reading from hardware) requires a specific session handshake, a Base-128 memory addressing formula, and a bit-level unpacking engine across 7-bit MIDI containers.
+
+### Hardware Visual Feedback (LED Status)
+* **Session Start (Unlock):** The guitar's active LED indicator **turns OFF** when the unlock sequence is initiated.
+* **During Transfer:** The LED remains unlit while presets are being transferred.
+* **Session End (Close):** The LED **turns back ON** immediately after receiving the session close command (`0x16`), confirming that the guitar has returned to normal performance mode.
+
+---
+
+## Communication Protocol & Session Lifecycle
+
+Reading presets requires a strictly timed 4-phase sequence. Standard MIDI baud rate (31,250 bps) constraints apply.
+
+Host (PC) Guitar (AT-200)
+| |
+|--- 1. Unlock Session (0x0E) -------------------------->| (Guitar LED turns OFF)
+|<-- ACK (0x0F) -----------------------------------------|
+| |
+|--- 2. Handshake Phase (3 packets, 0x12) -------------->|
+|<-- Handshake ACKs (0x13, includes 340B descriptor) ----|
+| [Drain / Buffer Settle: 200-250 ms] |
+| |
+|--- 3. Preset Requests (0x1D, Slots 0..63) ------------>|
+|<-- Preset Responses (0x1F, 114 bytes each) ------------|
+| |
+|--- 4. Close Session (0x16) --------------------------->| (Guitar LED turns back ON)
+|<-- ACK (0x17) -----------------------------------------|
+
+### Phase 1: Unlock Session
+Initiates communication. The guitar's LED turns off.
+* **TX:** `F0 00 01 26 00 0E F7` (7 bytes)
+* **RX:** `F0 00 01 26 01 0F F7` (7 bytes)
+
+### Phase 2: Memory Handshake
+Three mandatory proprietary packets must be transmitted:
+1. `F0 00 01 26 00 12 00 00 00 00 00 00 1C 00 00 03 40 F7` (18 bytes)  
+   *RX response: 59 bytes (`0x13`)*
+2. `F0 00 01 26 00 12 00 10 00 00 00 00 0C 00 20 01 40 F7` (18 bytes)  
+   *RX response: 31 bytes (`0x13`)*
+3. `F0 00 01 26 00 12 00 10 00 00 00 01 40 00 20 18 00 F7` (18 bytes)  
+   *RX response: 340 bytes (`0x13`)*
+
+> **CRITICAL TIMING NOTE:** Handshake ACK #3 transmits **340 bytes**. At 31,250 baud, this takes ~110 ms to transmit over the physical wire. The host **must wait at least 200–250 ms** and fully flush/drain the incoming MIDI buffer before requesting presets. Failing to do so will cause the first preset request to swallow this 340-byte residual packet, causing an **Off-by-One pipeline shift** where every preset is assigned to the wrong slot.
+
+### Phase 3: Preset Data Requests (`0x1D`)
+The guitar's 64 preset slots (0 to 63) are addressed using a continuous Base-128 MIDI container formula:
+
+Address = (slot + 5) * 16 = (slot + 5) << 4
+MSB = (Address >> 7) & 0x7F
+LSB = Address & 0x7F
+
+* **Request Packet (11 bytes):**  
+  `F0 00 01 26 00 1D 00 00 [MSB] [LSB] F7`
+
+| Slot Index | Formula `(slot + 5) << 4` | MSB | LSB | Request Bytes |
+|:---|:---|:---:|:---:|:---|
+| **Slot 00** | (0 + 5) * 16 = 80 | `0x00` | `0x50` | `F0 00 01 26 00 1D 00 00 00 50 F7` |
+| **Slot 01** | (1 + 5) * 16 = 96 | `0x00` | `0x60` | `F0 00 01 26 00 1D 00 00 00 60 F7` |
+| **Slot 02** | (2 + 5) * 16 = 112 | `0x00` | `0x70` | `F0 00 01 26 00 1D 00 00 00 70 F7` |
+| **Slot 03** | (3 + 5) * 16 = 128 | `0x01` | `0x00` | `F0 00 01 26 00 1D 00 00 01 00 F7` |
+| ... | ... | ... | ... | ... |
+| **Slot 63** | (63 + 5) * 16 = 1088 | `0x08` | `0x40` | `F0 00 01 26 00 1D 00 00 08 40 F7` |
+
+* **Response Packet (114 bytes):**  
+  `F0 00 01 26 [dev] 1F [107 bytes Payload] F7`  
+  *Valid preset packets must strictly be 114 bytes in length with command byte `0x1F` at index 5.*
+
+### Phase 4: Close Session
+Closes the communication channel and restores physical control. The guitar's LED turns back on.
+* **TX:** `F0 00 01 26 00 16 F7` (7 bytes)
+* **RX:** `F0 00 01 26 05 17 F7` (7 bytes)
+
+---
+
+## Preset Payload Bitstream Specification (107 Bytes)
+
+All offsets refer to the payload buffer **after** stripping the 6-byte header (`F0 00 01 26 xx 1F`) and the terminating `F7`:
+
+payload = raw_sysex[6:-1]   # 107 bytes total
+
+### 1. Solid-Tune Toggle
+* **Location:** `payload[3]`
+* **Encoding:** `0x00` = ON, `0x10` = OFF
+solid_tune = (payload[3] & 0x10) == 0
+
+### 2. Tuning Engine & Capo
+* **Locations:** `payload[4]` (Tuning ID & Capo Sign) and `payload[5]` (Capo Value)
+* **Stock Tunings:** `0x02` = Standard, `0x1A` = Drop D, `0x2A` = DADGAD.
+* **Custom Tuning Flag:** `0x09` or `0x0A`.
+
+tuning_byte = payload[4]
+is_custom_tune = tuning_byte in (0x09, 0x0A)
+stock_tuning_id = (tuning_byte >> 3) & 0x0F
+
+# Capo Decoding
+b59 = payload[5]
+if tuning_byte & 0x02:
+    capo = b59 >> 2           # Non-negative (0 to +12)
+else:
+    capo = (b59 - 129) // 4   # Negative (-1 to -12)
+
+### 3. Pitch Shift Travel
+* **Location:** `payload[6]`
+* **Modes:** `0` = Octave Up (+12), `1` = Octave Down (-12), `2` = Full Whammy (-12..+12), `3` = Detune/Chorus (-100c..+100c).
+pitch_shift = payload[6] & 0x03
+
+### 4. Guitar Model & Pickup Position (21-bit Register)
+Packed across 3 MIDI 7-bit bytes (`payload[8]`, `payload[9]`, `payload[10]`):
+
+word_21 = (payload[8] << 14) | (payload[9] << 7) | payload[10]
+model_id   = (word_21 >> 13) & 0x7F
+pickup_pos = (word_21 >> 5)  & 0x07
+
+* **Pickup Positions:** `0` = Neck, `1` = Neck + Mid, `2` = Mid / Both, `3` = Mid + Bridge, `4` = Bridge.
+* **Guitar Models:**
+  * `0` = ModHB, `1` = VinHB HB, `2` = MiniHB, `3` = SBar, `4` = MMHSH, `5` = NasSC, `6` = CalSC, `7` = LStick, `8` = Acoustic, `9` = Bass, `10` = JPHSH.
+
+### 5. Preset Name (18 ASCII Characters)
+Starts at **Byte 11, bit 3** (MSB-first). Spans 144 bits across continuous 7-bit containers (bytes 11 through 31).
+
+### 6. Doubling Engine
+* **Locations:** `payload[32]` and `payload[33]`
+
+b86 = payload[32]
+b87 = payload[33]
+if b86 == 0x04 and b87 == 0x40:
+    doubling_id = 9   # Custom Doubling
+else:
+    doubling_id = ((b86 & 0x7F) << 1) | ((b87 >> 6) & 1)
+
+### 7. Noise Gate Threshold
+* **Location:** `payload[37]`
+gate_threshold = (payload[37] >> 2) & 0x1F  # Range: 0 to 22
+
+### 8. Custom Tuning & Doubling (Q1.23 Fixed-Point Math)
+When Custom Tuning (`tuning == 1`) or Custom Doubling (`doubling == 9`) is enabled, a matrix of **6 strings x 24-bit fixed-point** values is packed into the stream:
+* **Custom Tuning Offset:** Starts at **Byte 41, bit 3**.
+* **Custom Doubling Offset:** Starts at **Byte 82, bit 2**.
+* **Hardware String Order:** High E (String 1) to Low E (String 6). Reverse order for tablature representation (String 6 to 1).
+
+The DSP representation maps 0 cents to 2^23 = 8,388,608.
+Formula: cents = 1200 * log2(Q / 8388608)
+
+---
+
+## Standalone Python Reference Implementation
+
+Requires `mido` and `python-rtmidi` (`pip install mido python-rtmidi`).
+
+```python
+import time
+import math
+from typing import Dict, Any, List, Tuple
+import mido
+
+def q123_to_cents(q_val: int) -> int:
+    if q_val <= 0 or q_val == 8388608:
+        return 0
+    return int(round(1200.0 * math.log2(q_val / 8388608.0)))
+
+def read_bits(buffer: bytes, start_byte: int, start_bit: int, num_bits: int) -> Tuple[int, int, int]:
+    val = 0
+    cur_byte, cur_bit = start_byte, start_bit
+    for _ in range(num_bits):
+        if cur_byte >= len(buffer):
+            break
+        bit = (buffer[cur_byte] >> cur_bit) & 1
+        val = (val << 1) | bit
+        cur_bit -= 1
+        if cur_bit < 0:
+            cur_bit = 6
+            cur_byte += 1
+    return val, cur_byte, cur_bit
+
+def unpack_preset(raw_sysex: bytes) -> Dict[str, Any]:
+    payload = raw_sysex[6:-1]
+    
+    solid_tune = (payload[3] & 0x10) == 0
+    tuning_byte = payload[4]
+    is_custom_tune = tuning_byte in (0x09, 0x0A)
+    tuning_id = 1 if is_custom_tune else ((tuning_byte >> 3) & 0x0F)
+    
+    b59 = payload[5]
+    capo = (b59 >> 2) if (tuning_byte & 0x02) else ((b59 - 129) // 4)
+    
+    w21 = (payload[8] << 14) | (payload[9] << 7) | payload[10]
+    model_id = (w21 >> 13) & 0x7F
+    pickup_pos = (w21 >> 5) & 0x07
+    
+    cur_b, cur_bt = 11, 3
+    chars = []
+    for _ in range(18):
+        c, cur_b, cur_bt = read_bits(payload, cur_b, cur_bt, 8)
+        chars.append(chr(c & 0x7F))
+    name = "".join(chars).rstrip()
+    
+    b86, b87 = payload[32], payload[33]
+    double_id = 9 if (b86 == 0x04 and b87 == 0x40) else (((b86 & 0x7F) << 1) | ((b87 >> 6) & 1))
+        
+    custom_tuning = [0] * 6
+    if is_custom_tune:
+        cur_b, cur_bt = 41, 3
+        q_cents = []
+        for _ in range(6):
+            q, cur_b, cur_bt = read_bits(payload, cur_b, cur_bt, 24)
+            q_cents.append(q123_to_cents(q))
+        custom_tuning = list(reversed(q_cents))
+        
+    return {
+        "name": name,
+        "model": model_id,
+        "pickup": pickup_pos,
+        "tuning": tuning_id,
+        "capo": capo,
+        "solid_tune": solid_tune,
+        "double": double_id,
+        "custom_tuning": custom_tuning
+    }
+
+def dump_guitar_presets(port_name: str) -> List[Dict[str, Any]]:
+    out_port = mido.open_output(port_name)
+    in_port = mido.open_input(port_name)
+    
+    def send(hex_cmd: str):
+        data = bytes.fromhex(hex_cmd.replace(" ", ""))
+        out_port.send(mido.Message("sysex", data=list(data[1:-1])))
+
+    # 1. Unlock Session (Guitar LED turns OFF)
+    send("F0 00 01 26 00 0E F7")
+    time.sleep(0.08)
+
+    # 2. Handshake Phase
+    handshake = [
+        "F0 00 01 26 00 12 00 00 00 00 00 00 1C 00 00 03 40 F7",
+        "F0 00 01 26 00 12 00 10 00 00 00 00 0C 00 20 01 40 F7",
+        "F0 00 01 26 00 12 00 10 00 00 00 01 40 00 20 18 00 F7"
+    ]
+    for pkt in handshake:
+        send(pkt)
+        time.sleep(0.05)
+
+    # Wait for the 340-byte descriptor and drain incoming queue
+    time.sleep(0.25)
+    for _ in in_port.iter_pending():
+        pass
+
+    presets = []
+
+    # 3. Retrieve 64 Preset Slots
+    for slot in range(64):
+        for _ in in_port.iter_pending():
+            pass
+
+        addr = (slot + 5) << 4
+        msb = (addr >> 7) & 0x7F
+        lsb = addr & 0x7F
+        req = bytes([0xF0, 0x00, 0x01, 0x26, 0x00, 0x1D, 0x00, 0x00, msb, lsb, 0xF7])
+        out_port.send(mido.Message("sysex", data=list(req[1:-1])))
+
+        raw_preset = None
+        t0 = time.time()
+        while time.time() - t0 < 0.35:
+            msg = in_port.poll()
+            if msg and msg.type == "sysex":
+                full = bytes([0xF0] + list(msg.data) + [0xF7])
+                if len(full) == 114 and len(full) > 5 and full[5] == 0x1F:
+                    raw_preset = full
+                    break
+            time.sleep(0.003)
+
+        if raw_preset:
+            p = unpack_preset(raw_preset)
+            print(f"Slot {slot:02d}: '{p['name']}' | Model: {p['model']} | Tuning: {p['tuning']}")
+            presets.append(p)
+        else:
+            print(f"Slot {slot:02d}: TIMEOUT")
+            presets.append({"name": f"EMPTY {slot:02d}"})
+
+    # 4. Close Session (Guitar LED turns back ON)
+    send("F0 00 01 26 00 16 F7")
+    time.sleep(0.05)
+
+    out_port.close()
+    in_port.close()
+    return presets
+
+if __name__ == "__main__":
+    ports = mido.get_output_names()
+    target_ports = [p for p in ports if not any(k in p.lower() for k in ("through", "rtp"))]
+    if target_ports:
+        print(f"Connecting to MIDI device: {target_ports[0]}")
+        dump_guitar_presets(target_ports[0])
+    else:
+        print("No MIDI interface detected.")
+```
+
+---
+
+
+License
+
+MIT License. Open for reverse engineers, musicians, and developers preserving and extending the Peavey AT-200 / Antares Auto-Tune for Guitar ecosystem.
+
+
 **Document Version 1.0.0** — Reverse-engineered for interoperability and community preservation.  
 Contributions and validations welcome.
+
+
+
