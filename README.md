@@ -655,18 +655,31 @@ Reading presets requires a strictly timed 4-phase sequence. Standard MIDI baud r
 
 Host (PC) Guitar (AT-200)
 | |
+
 |--- 1. Unlock Session (0x0E) -------------------------->| (Guitar LED turns OFF)
+
 |<-- ACK (0x0F) -----------------------------------------|
+
 | |
+
 |--- 2. Handshake Phase (3 packets, 0x12) -------------->|
+
 |<-- Handshake ACKs (0x13, includes 340B descriptor) ----|
+
 | [Drain / Buffer Settle: 200-250 ms] |
+
 | |
+
 |--- 3. Preset Requests (0x1D, Slots 0..63) ------------>|
+
 |<-- Preset Responses (0x1F, 114 bytes each) ------------|
+
 | |
+
 |--- 4. Close Session (0x16) --------------------------->| (Guitar LED turns back ON)
+
 |<-- ACK (0x17) -----------------------------------------|
+
 
 ### Phase 1: Unlock Session
 Initiates communication. The guitar's LED turns off.
