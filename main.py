@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Peavey AT-200 Master Controller — Application Entry Point (main.py)
+ATGMaster Controller — Application Entry Point (main.py)
 Initializes Qt application, establishes modular dependencies,
 and launches the main controller window.
 All comments, docstrings, and symbols are strictly in English.

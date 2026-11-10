@@ -1,8 +1,8 @@
-# Peavey AT-200 / Antares ATG Preset SysEx Protocol Specification
+# ATG/ ATG Preset SysEx Protocol Specification
 
 **Reverse-Engineered Hardware Specification & Developer Implementation Guide**
 
-> **Target Hardware:** Peavey AT-200 / Antares Auto-Tune for Guitar (ATG-1 / ATG DSP Core)  
+> **Target Hardware:** AT for Guitar (ATG-1 / ATG DSP Core)  
 > Product names are used for identification purposes only. This is an independent reverse-engineering effort and is not affiliated with, endorsed by, or sponsored by Peavey or Antares.
 > **Document Version:** 1.0.0  
 > **Scope:** Complete Preset Payload, Parameter Encoding, Q1.23 DSP Math, and Base-128 Checksum Engine.  
@@ -23,13 +23,13 @@ It is **not** official documentation from Peavey or Antares.
 
 ## 1. Hardware Communication & SysEx Transaction Architecture
 
-The Peavey AT-200 communicates via standard MIDI 1.0 (31,250 baud, 8-N-1).  
+The ATGcommunicates via standard MIDI 1.0 (31,250 baud, 8-N-1).  
 All System Exclusive (SysEx) data packets must strictly obey MIDI 7-bit framing: **Bit 7 of all data payload bytes must always be 0** (values `0x00` to `0x7F`).
 
 Flashing a preset into non-volatile guitar memory requires a strict three-phase atomic handshake:
 
 ```
-[Master Controller]                           [Peavey AT-200 Guitar]
+[Master Controller]                           [ATGGuitar]
         |                                                |
         |--- 1. Flash Preset Unlock (7 bytes) ---------->|
         |    F0 00 01 26 00 0E F7                        |
@@ -89,7 +89,7 @@ Byte Index   00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15
 
 | Byte Index | Field Name | Width / Format | Range / Valid Values | Description |
 |------------|------------|----------------|----------------------|-------------|
-| 0..4 | SysEx Header | 5 bytes | `F0 00 01 26 00` | Antares Manufacturer ID (`00 01 26`), Sub-ID 00 |
+| 0..4 | SysEx Header | 5 bytes | `F0 00 01 26 00` | Manufacturer ID (`00 01 26`), Sub-ID 00 |
 | 5 | Command ID | 1 byte | `0x1A` | Preset Write / Flash Payload opcode |
 | 6..28 | Frame Preamble | 23 bytes | Fixed | Routing preamble (`... 01 1C ...`) |
 | 29 | Target Preset Slot | 1 byte | `0x05` to `0x44` | Target Slot Index: `slot_idx + 5` (Slots 0..63) |
@@ -324,7 +324,7 @@ else:
 
 ## 5. DSP Fixed-Point Q1.23 Mathematical Engine
 
-The Antares ATG processor operates on 24-bit fixed-point pitch multipliers in **Q1.23** format (1 integer bit, 23 fractional bits).
+The ATG processor operates on 24-bit fixed-point pitch multipliers in **Q1.23** format (1 integer bit, 23 fractional bits).
 
 ### 5.1 Cents to Q1.23 Conversion Formula
 
@@ -337,7 +337,7 @@ Q1.23 Value = ceil(Raw Value) & ~0b11
 ```
 
 **Crucial Firmware Requirements:**
-- **Ceiling Rounding (`ceil`)**: Antares ATG firmware uses strict mathematical ceiling rounding (`math.ceil`) before integer truncation.
+- **Ceiling Rounding (`ceil`)**: ATG firmware uses strict mathematical ceiling rounding (`math.ceil`) before integer truncation.
 - **Phase Mask (`& ~0b11`)**: The two least-significant bits (bits 0 and 1) are reserved by the hardware interpolation engine and must always be zero (`& 0xFFFFFC`).
 - **Neutral Unity Point**: 0 cents produces exactly `8388608` (`0x800000`, ratio 1.0).
 - **The +1200 Cents Overflow Clamping**: A full octave up (+1200 cents) produces ratio 2.0 → `16777216` = 2²⁴, which does not fit in a 24-bit container. When passed 1200, it wraps around to `0x000000` (silencing the voice).  
@@ -528,7 +528,7 @@ def encode_matrix_q123(buffer: bytearray, start_byte: int, start_bit: int, cents
     return delta_accum
 
 def build_sysex_preset_packet(slot_idx: int, patch_dict: Dict[str, Any]) -> bytes:
-    """Builds an authentic 169-byte SysEx preset packet for Peavey AT-200 / Antares ATG hardware."""
+    """Builds an authentic 169-byte SysEx preset packet for ATG/ ATG hardware."""
     packet = bytearray(BLANK_SYSEX_TEMPLATE)
 
     # 1. Preset Slot Destination (Byte 29: slot + 5)
@@ -632,15 +632,15 @@ def build_sysex_preset_packet(slot_idx: int, patch_dict: Dict[str, Any]) -> byte
 
 
 
-# Peavey AT-200 / Antares Auto-Tune for Guitar (ATG) Preset Retrieve Protocol
+# AT for Guitar (ATG) Preset Retrieve Protocol
 
-Reverse-engineered specification and Python reference implementation for retrieving (reading) and unpacking the 64 preset slots directly from the **Peavey AT-200** / **Antares ATG-1** hardware over standard MIDI System Exclusive (SysEx).
+Reverse-engineered specification and Python reference implementation for retrieving (reading) and unpacking the 64 preset slots directly from the **Peavey AT-200** / **ATG-1** hardware over standard MIDI System Exclusive (SysEx).
 
 ---
 
 ## Overview
 
-The Peavey AT-200 uses proprietary Antares SysEx messages (`Manufacturer ID: 00 01 26`). While write/flashing operations have historically been documented, preset extraction (reading from hardware) requires a specific session handshake, a Base-128 memory addressing formula, and a bit-level unpacking engine across 7-bit MIDI containers.
+The ATG uses proprietary SysEx messages (`Manufacturer ID: 00 01 26`). While write/flashing operations have historically been documented, preset extraction (reading from hardware) requires a specific session handshake, a Base-128 memory addressing formula, and a bit-level unpacking engine across 7-bit MIDI containers.
 
 ### Hardware Visual Feedback (LED Status)
 * **Session Start (Unlock):** The guitar's active LED indicator **turns OFF** when the unlock sequence is initiated.
@@ -954,7 +954,7 @@ if __name__ == "__main__":
 
 License
 
-MIT License. Open for reverse engineers, musicians, and developers preserving and extending the Peavey AT-200 / Antares Auto-Tune for Guitar ecosystem.
+MIT License. Open for reverse engineers, musicians, and developers preserving and extending the AT for Guitar ecosystem.
 
 
 **Document Version 1.0.0** — Reverse-engineered for interoperability and community preservation.  

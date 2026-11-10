@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Peavey AT-200 Master Controller — UI Module (ui.py)
+ATGMaster Controller — UI Module (ui.py)
 Desktop Graphical User Interface built with PyQt6.
 Faithful 1:1 replica of the original layout, modularized to use
 core, transport, and librarian components with zero linter warnings.
@@ -86,7 +86,7 @@ class AT200MainWindow(QWidget):
         self.transport = transport
         self.librarian = librarian
 
-        self.setWindowTitle("Peavey AT-200 Master Controller")
+        self.setWindowTitle("ATGMaster Controller")
         self.resize(1380, 800)
 
         self.is_loading_ui: bool = False

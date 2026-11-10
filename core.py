@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Peavey AT-200 Master Controller — Core Module (core.py)
+ATGMaster Controller — Core Module (core.py)
 Hardware bitstream engine, Q1.23 mathematics, checksum serialization,
 lookup tables, and portable filesystem definitions.
 All comments, docstrings, and symbols are strictly in English.
@@ -172,7 +172,7 @@ def cents_to_q123(cents: int) -> int:
     """
     Converts musical cents to DSP Q1.23 fixed-point format.
     Strictly uses math.ceil() followed by clearing bits 0 and 1 (& ~0b11),
-    matching the Antares ATG firmware implementation.
+    matching the ATG firmware implementation.
     Clamps positive cents to 1199 to prevent 24-bit container overflow (ratio 2.0 = 2^24).
     """
     if cents == 0:
@@ -274,7 +274,7 @@ def encode_matrix_q123(
 # ==============================================================================
 def build_sysex_preset_packet(slot_idx: int, patch_dict: Dict[str, Any]) -> bytes:
     """
-    Builds the 169-byte SysEx preset packet for Peavey AT-200 / Antares ATG hardware.
+    Builds the 169-byte SysEx preset packet for ATG/ ATG hardware.
     Computes exact Base-128 checksum and packs parameters into the continuous 7-bit stream.
     """
     packet = bytearray(BLANK_SYSEX_TEMPLATE)

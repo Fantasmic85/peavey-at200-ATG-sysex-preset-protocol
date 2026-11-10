@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Peavey AT-200 Master Controller — Transport Module (transport.py)
+ATGMaster Controller — Transport Module (transport.py)
 Handles native MIDI (Mido) and raw Serial (PySerial) communication
 with the guitar and the Arduino StrapBox hardware.
 All comments, docstrings, and symbols are strictly in English.

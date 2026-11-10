@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Peavey AT-200 Master Controller — Librarian Module (librarian.py)
+ATGMaster Controller — Librarian Module (librarian.py)
 Manages JSON storage, timestamped backups, shadow memory diff tracking,
 and preset renaming propagation.
 All comments, docstrings, and symbols are strictly in English.
